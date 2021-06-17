@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListagemCategoriasComponent implements OnInit {
 
   public _categorias = new MatTableDataSource<any>();
-  public _displayedColuns: string[] | undefined;
+  public _displayedColumns: string[] | undefined;
 
   constructor(
     private categoriasService: CategoriasService
@@ -23,7 +23,7 @@ export class ListagemCategoriasComponent implements OnInit {
       this._categorias.data = resultado;
     });
 
-    this._displayedColuns = ExibirColunas();
+    this._displayedColumns = ExibirColunas();
   }
   
 }
