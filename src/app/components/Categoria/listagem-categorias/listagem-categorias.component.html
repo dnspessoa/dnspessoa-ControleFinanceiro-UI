@@ -11,6 +11,27 @@
         </mat-grid-list>
     </div>
 
+    <div class="divAutoComplete">
+        <form>
+          <mat-form-field class="autoCompleteInput">
+            <input
+              type="text"
+              placeholder="Digite o que você procura"
+              matInput
+              [formControl]="_autoCompleteInput"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let nome of _nomesCategorias | async"
+                [value]="nome"
+                >{{ nome }}</mat-option
+              >
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
+
     <table mat-table [dataSource]="_categorias" class="mat-elevation-z8 tabela"> -->
         <ng-container matColumnDef="nome">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
@@ -35,7 +56,7 @@
                 <button mat-mini-fab color="primary" [routerLink]="['/categorias/AtualizarCategoria', categoria.categoriaId]">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-mini-fab color="warn">
+                <button mat-mini-fab color="warn" (click)="AbrirDialog(categoria.categoriaId, categoria.nome)"> 
                     <mat-icon>delete_forever</mat-icon>
                 </button>
             </td>

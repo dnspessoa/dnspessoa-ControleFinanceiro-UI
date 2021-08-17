@@ -41,4 +41,9 @@ export class CategoriasService {
     return this.http.delete<Categoria>(apiUrl, _httpOptions);    
   }
 
+  FiltrarCategorias(nomeCategoria: string) : Observable<Categoria[]>{
+    const apiUrl = `${this._url}/FiltrarCategorias/${nomeCategoria}`;
+    return this.http.get<Categoria[]>(apiUrl);
+  }
+
 }

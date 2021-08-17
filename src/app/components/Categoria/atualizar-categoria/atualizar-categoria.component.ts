@@ -62,6 +62,4 @@ export class AtualizarCategoriaComponent implements OnInit {
     this.router.navigate(['categorias/listagemcategorias']);
   }
 
-  
-
 }
